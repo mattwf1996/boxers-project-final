@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block body %}
+
+    <h2>Incomplete Boxers</h2>
+    {% for boxer in all_boxers %}
+    {% if boxer.completed == False %}
+        <p>
+            Boxer ID: {{ boxer.id }}<br>
+            Boxer Description: {{ boxer.description }}<br>
+            {#<!-- <a href="{{ url_for('update_boxer', id=boxer.id) }}">Edit</a>
+            <a href="{{ url_for('delete_boxer', id=boxer.id) }}">Delete</a>
+            <a href="{{ url_for('complete_boxer', id=boxer.id) }}">Complete</a> --> #}
+        </p>    
+    {% endif %}
+    {% endfor %}
+    
+    <h2>Completed boxers</h2>
+    {% for boxer in all_boxers %}
+    {% if boxer.completed == True %}
+        <p>
+            Boxer ID: {{ boxer.id }}<br>
+            Boxer Description: {{ boxer.description }}<br>
+            {# <!-- <a href="{{ url_for('update_boxer', id=boxer.id) }}">Edit</a>
+            <a href="{{ url_for('delete_boxer', id=boxer.id) }}">Delete</a>
+            <a href="{{ url_for('incomplete_boxer', id=boxer.id) }}">Incomplete</a> --> #}
+        </p>    
+    {% endif %}
+    {% endfor %}
+
+{% endblock body %}

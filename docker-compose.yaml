@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  frontend:
+    build: ./frontend
+    image: boxers-project-frontend:latest
+    container_name: boxers-project-frontend
+    ports:
+    - target: 5000
+      published: 80
+  backend:
+    build: ./backend
+    image: boxers-project-backend:latest
+    container_name: boxers-project-backend
+    environment:
+      DATABASE_URI:
+      CREATE_SCHEMA:
+    ports:
+    - target: 5000
+      published: 5000
