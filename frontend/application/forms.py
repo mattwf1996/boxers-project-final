@@ -4,7 +4,7 @@ from flask_wtf import FlaskForm
 
 class CreateDivisionForm(FlaskForm):
     name = StringField('Division Name', validators=[DataRequired()])
-    mass = IntegerField('Division Weight_Range', validators=[DataRequired()])
+    mass = IntegerField('Division Weight_Range', validators=[DataRequired()],
         choices=[
             ('Lightweight', 'Lightweight'),
             ('Middleweight', 'Middleweight'),

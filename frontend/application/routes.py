@@ -4,7 +4,7 @@ from flask import render_template, request, redirect, url_for
 import requests
 from os import getenv
 
-backend_host = "boxers-project-backend:5000
+backend_host = "boxers-project-backend:5000"
 
 @app.route('/', methods=["GET"])
 def home():

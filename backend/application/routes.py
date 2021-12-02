@@ -53,7 +53,7 @@ def get_all_divisions():
 
 @app.route('/get/allBoxers', methods=["GET"])
 def get_all_boxers():
-    all_boxers = Division.query.all()
+    all_boxers = Boxer.query.all()
     json = {"boxers": []}
     for boxer in all_boxers:
         json["boxers"].append(
