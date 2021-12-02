@@ -1,5 +1,42 @@
 {% extends "layout.html" %}
 {% block body %}
+
+<form method="POST">
+    <table>
+        <tr>
+            <td>{{ form.name.label }}</td>
+            <td>{{ form.name }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.weight.label }}</td>
+            <td>{{ form.weight }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.division.label }}</td>
+            <td>{{ form.division }}</td>
+        </tr>
+    </table>
+    {{ form.submit }}
+    {{ form.hidden_tag() }}
+</form>
+
+{% endblock body %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- {% extends "layout.html" %}
+{% block body %}
 <div class='form'>
     <form method='POST' action=''>
         {{ form.hidden_tag() }}
@@ -7,4 +44,4 @@
         {{ form.submit }}<br>
     </form>
 </div>
-{% endblock %}
+{% endblock %} -->

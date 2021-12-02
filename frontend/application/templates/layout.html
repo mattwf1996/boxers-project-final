@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Boxers Project - {{ title }}</title>
+        <title>Boxers</title>
     </head>
     <body style="background-color: rgb(66, 156, 168);">
-        <h1>Boxers Project - {{ title }}</h1>
+        <h1>Boxers - {{ title }}</h1>
         <p>
             <a href="{{ url_for('home') }}">Home</a>
-            {#<!-- <a href="{{ url_for('create_boxer') }}">Add Boxer</a> -->#}
-        </p>
-        {% block body %}
-        {% endblock body %}
-    </body>
-</html>
+            <a href="{{ url_for('create_division') }}">Add Division</a>
+            <a href="{{ url_for('create_boxer') }}">Add Boxer</a>
+            {% block body %}
+            {% endblock %}
+        </body>
+    </html>

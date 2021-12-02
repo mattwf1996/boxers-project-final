@@ -1,5 +1,60 @@
 {% extends "layout.html" %}
 {% block body %}
+    {% for division in divisions %}
+    <table>
+        <h2>{{ division["name"] }}</h2>
+        <tr>
+            <td><b>Weight_Range</b></td>
+            <td>{{ division["weight_range"] }}</td> 
+        </tr>
+    </table>
+    
+    <h3>Boxers of {{ division["name"] }}</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Weight</th>
+        </tr>
+        {% for boxer in division["boxers"] %}
+        <tr>
+            <td>{{ boxer["name"] }}</td> 
+            <td>{{ boxer["weight"] }}</td> 
+        </tr>
+        {% endfor %}
+    </table>
+
+    {% endfor %}
+{% endblock body %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- {% extends "layout.html" %}
+{% block body %}
 
     <h2>Incomplete Boxers</h2>
     {% for boxer in all_boxers %}
@@ -10,8 +65,8 @@
             {#<!-- <a href="{{ url_for('update_boxer', id=boxer.id) }}">Edit</a>
             <a href="{{ url_for('delete_boxer', id=boxer.id) }}">Delete</a>
             <a href="{{ url_for('complete_boxer', id=boxer.id) }}">Complete</a> --> #}
-        </p>    
-    {% endif %}
+        <!-- </p>     -->
+    <!-- {% endif %}
     {% endfor %}
     
     <h2>Completed boxers</h2>
@@ -19,12 +74,12 @@
     {% if boxer.completed == True %}
         <p>
             Boxer ID: {{ boxer.id }}<br>
-            Boxer Description: {{ boxer.description }}<br>
+            Boxer Description: {{ boxer.description }}<br> -->
             {# <!-- <a href="{{ url_for('update_boxer', id=boxer.id) }}">Edit</a>
             <a href="{{ url_for('delete_boxer', id=boxer.id) }}">Delete</a>
             <a href="{{ url_for('incomplete_boxer', id=boxer.id) }}">Incomplete</a> --> #}
-        </p>    
+        <!-- </p>    
     {% endif %}
     {% endfor %}
 
-{% endblock body %}
+{% endblock body %} --> -->
