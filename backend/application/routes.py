@@ -4,10 +4,10 @@ from flask import render_template, request, redirect, url_for, Response, jsonify
 
 @app.route('/create/division', methods=['POST'])
 def create_division():
-        package = request.json
+        json = request.json
         new_division = Division(
             name = json["name"],
-            weight_range = json["weight range"]
+            weight_range = json["weight_range"]
         )
         db.session.add(new_division)
         db.session.commit()
@@ -31,7 +31,7 @@ def create_boxer(division_id):
 def get_all_divisions():
     all_divisions = Division.query.all()
     json = {"divisions": []}
-    for division in all_divisionss:
+    for division in all_divisions:
         boxers = []
         for boxer in division.boxers:
             boxers.append(
@@ -122,45 +122,3 @@ def delete_boxer(id):
     boxer = Boxer.query.get(id)
     db.session.delete(boxer)
     return f"Boxer '{boxer.name}' deleted successfully"
-
-
-
-
-
-
-# @app.route('/create/boxer', methods=['POST'])
-# def create_boxer():
-#         package = request.json
-#         new_boxer = Boxers(description=package["description"])
-#         db.session.add(new_boxer)
-#         db.session.commit()
-#         return Response(f"Added boxer with description: {new_boxer.description}", mimetype='text/plain')
-
-# @app.route('/read/allBoxers', methods=['GET'])
-# def read_boxers():
-#     all_boxers = Boxers.query.all()
-#     boxers_dict = {"boxers": []}
-#     for boxer in all_boxers:
-#         boxers_dict["boxers"].append(
-#             {
-#                 "description": boxer.description,
-#                 "added": boxer.added
-#             }
-#         )
-#     return jsonify(boxers_dict)
-
-# @app.route('/update/boxer/<int:id>', methods=['PUT'])
-# def update_boxer(id):
-#     package = request.json
-#     boxer = Boxers.query.get(id)
-
-#     boxer.description = package["description"]
-#     db.session.commit()
-#     return Response(f"Updated boxer (ID: {id}) with description: {boxer.description}", mimetype='text/plain')
-
-# @app.route('/delete/boxer/<int:id>', methods=['DELETE'])
-# def delete_boxer(id):
-#     boxer = Boxers.query.get(id)
-#     db.session.delete(boxer)
-#     db.session.commit()
-#     return Response(f"Deleted boxer with ID: {id}", mimetype='text/plain')

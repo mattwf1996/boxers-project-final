@@ -2,7 +2,7 @@ from application import db
 
 class Division(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    division_name = db.Column(db.String(30), nullable=False)
+    weight_range = db.Column(db.String(30), nullable=False)
     boxers = db.relationship('Boxer', backref='division')
     #add weight range column
     
